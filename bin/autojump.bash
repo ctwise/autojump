@@ -52,7 +52,9 @@ esac
 
 # default autojump command
 j() {
-    if [[ ${@} =~ ^-{1,2}.* ]]; then
+    if [[ $1 == -- ]]; then
+        shift
+    elif [[ ${@} =~ ^-{1,2}.* ]]; then
         autojump ${@}
         return
     fi
